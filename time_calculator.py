@@ -1,4 +1,4 @@
-def add_time(start, duration):
+def add_time(start, duration, day_of_week=False):
 
     index_of_days = {
         "monday": 0,
@@ -42,5 +42,15 @@ def add_time(start, duration):
     am_pm = am_pm_flip[am_pm] if amount_of_am_pm_flip % 2 == 1 else am_pm
 
     returnTime = str(end_hrs) + ":" + str(end_mins) + " " + am_pm
-
+    if (day of week):
+        day_of_week = day_of_week.lower()
+        index = int((index_of_days[day_of_week]) + amount_of_days) % 7
+        new_day = arrays_of_days[index]
+        returnTime += ", " + new_day
+        
+    if(amount_of_days == 1):
+      return returnTime + " " + "(next day)"
+    elif (amount_of_days > 1):
+      return returnTime + " (" + str(amount_of_days) + " days later)"
+    
     return returnTime
